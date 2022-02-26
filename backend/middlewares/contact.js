@@ -10,6 +10,7 @@ const existingContact = async (req, res, next) => {
     if(existingThisContact) return res.status(400).send({msg:"This contact is already registered in this phone book"});
 
     next();
+
 }
 
 export default {existingContact};

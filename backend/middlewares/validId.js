@@ -2,8 +2,15 @@
 import mongoose from 'mongoose';
 
 const idValidation = async(req, res, next) => {
-    const isValidId = mongoose.Types.ObjectId.isValid(req.params["_phoneBookId"]);
-    return !isValidId ? res.status(400).send({msg:"Invalid Id"}) : next();
+    let isValidPhoneId = true, isValidContactId=true;
+
+    if(req.params["_phoneBookId"]){
+        isValidPhoneId = mongoose.Types.ObjectId.isValid(req.params["_phoneBookId"]);
+    }
+    if(req.params["_contactId"]){
+        isValidContactId = mongoose.Types.ObjectId.isValid(req.params["_contactId"]);
+    }
+    return !isValidPhoneId || !isValidContactId ? res.status(400).send({msg:"Invalid Id"}) : next();
 }
 
 export default idValidation;

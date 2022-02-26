@@ -10,5 +10,7 @@ const existingContact = contactMD.existingContact;
 
 APP.post("/addContact", phoneBookId, existingContact, contact.addContact);
 APP.get("/contactList/:_phoneBookId", validId, contact.contactsList);
+APP.get("/searchContact/:_phoneBookId/:name", validId, contact.searchContact);
+APP.delete("/deleteContact/:_phoneBookId/:_contactId", validId, contact.deleteContact);
 
 export default APP;
