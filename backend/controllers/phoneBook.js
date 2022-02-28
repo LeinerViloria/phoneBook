@@ -1,5 +1,6 @@
 //Aqui van los directorios
 import phoneBook from '../models/phoneBook.js';
+import contact from "../models/contact.js";
 
 const register = async (req, res) =>{
     const schema = new phoneBook({

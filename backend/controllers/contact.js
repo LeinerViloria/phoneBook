@@ -11,12 +11,12 @@ const addContact = async (req, res) => {
 
   if (!canSave) return res.status(500).send({ msg: "The phone book is full" });
 
-  //   let telephone = !req.body.tel ? "Sin numero" : req.body.tel;
-  //   let cellphone = !req.body.cel ? "Sin numero" : req.body.cel;
+     let telephone = !req.body.tel ? "Sin numero" : req.body.tel;
+     let cellphone = !req.body.cel ? "Sin numero" : req.body.cel;
 
     const schema = new contact({
         phoneBookId:req.body.phoneBookId,
-        name:req.body.name.toLowerCase(),
+        name:req.body.name.toLowerCase().trim(),
         tel:telephone,
         cel:cellphone
     });
@@ -63,19 +63,18 @@ const deleteContact = async (req, res) => {
 
   if (!contactToDelete) return res.status(500).send({ msg: "Error to delete" });
 
-  res.status(200).send({ msg: "Contact deleted in this phone book" });
+  res.status(200).send({ msg: "The contact "+ contactToDelete.name + " was successfully removed" });
 };
 // realise el update
 const updateContact = async (req, res) => {
   if (
     !req.body._id ||
-    !req.body.name ||
-    !req.body.phoneBookId ||
     !req.body.tel & !req.body.cel
   )
     return res.status(400).send({ message: "Incomplete data" });
 
   const contactUpdated = await contact.findByIdAndUpdate(req.body._id, {
+    name: req.body.name,
     tel: req.body.tel,
     cel: req.body.cel,
   });
