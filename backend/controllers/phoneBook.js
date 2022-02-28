@@ -11,7 +11,7 @@ const register = async (req, res) =>{
 }
 
 const freeSpaces = async (req, res) => {
-    const limit = 3;
+    const limit = 10;
     const phoneBookContacts = await contact.find({phoneBookId:req.params["_phoneBookId"]});
 
     if(!phoneBookContacts) return res.status(500).send({msg:"Contacts not found in this phone book"});

@@ -14,7 +14,7 @@ const addContact = async (req, res) => {
 
     const schema = new contact({
         phoneBookId:req.body.phoneBookId,
-        name:req.body.name,
+        name:req.body.name.toLowerCase(),
         tel:telephone,
         cel:cellphone
     });
@@ -38,7 +38,7 @@ const contactsList = async (req, res) => {
 const searchContact = async (req, res) => {
     if(!req.params["name"]) return res.status(400).send({msg:"Incomplete data"});
 
-    const contactSearched = await contact.findOne({$and:[{phoneBookId:req.params["_phoneBookId"]}, {name:req.params["name"]}]});
+    const contactSearched = await contact.findOne({ $and:[{phoneBookId:req.params["_phoneBookId"]}, {name: new RegExp (req.params["name"], "i")}]}) ;
 
     if(!contactSearched) return res.status(500).send({msg:"Contact not found"});
 

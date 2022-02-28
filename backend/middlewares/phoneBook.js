@@ -5,7 +5,7 @@ import phoneBook from '../models/phoneBook.js';
 const nameVerification = async(req, res, next) => {
     if(!req.body.name) return res.status(400).send({msg:"Incomplete data"});
     const existingName = await phoneBook.findOne({name:req.body.name});
-
+    console.log(existingName._id);
     if(existingName) return res.status(400).send({msg:"This phoneBook is already registered"});
 
     next();
