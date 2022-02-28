@@ -11,7 +11,7 @@ const nameVerification = async(req, res, next) => {
 }
 
 const getPhoneBookIdByName = async (req, res, next) =>{
-    if(!req.body.phoneBookName) return res.status(400).send({msg:"Incomplete data"});
+    if(!req.body.phoneBookName) return res.status(400).send({msg:"Incomplete datass"});
 
     const thisPB = await phoneBook.findOne({name:req.body.phoneBookName});
 
