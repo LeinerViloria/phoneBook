@@ -7,12 +7,12 @@ import validId from '../middlewares/validId.js';
 const APP = express.Router();
 const phoneBookId = phoneBookMD.getPhoneBookIdByName;
 const existingContact = contactMD.existingContact;
-const dotNotChanges = contactMD.doNotChanges;
+const notChanges = contactMD.notChanges;
 
 APP.post("/addContact", phoneBookId, existingContact, contact.addContact);
 APP.get("/contactList/:_phoneBookId", validId, contact.contactsList);
 APP.get("/searchContact/:_phoneBookId/:name", validId, contact.searchContact);
 APP.delete("/deleteContact/:_contactId", validId, contact.deleteContact);
- APP.put("/updateContact", existingContact,dotNotChanges ,contact.updateContact);
+APP.put("/updateContact", phoneBookId, notChanges, contact.updateContact);
 
 export default APP;

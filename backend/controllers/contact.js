@@ -65,7 +65,7 @@ const deleteContact = async (req, res) => {
 
   res.status(200).send({ msg: "The contact "+ contactToDelete.name + " was successfully removed" });
 };
-// realise el update
+// realice el update
 const updateContact = async (req, res) => {
   if (
     !req.body._id ||
@@ -74,7 +74,6 @@ const updateContact = async (req, res) => {
     return res.status(400).send({ message: "Incomplete data" });
 
   const contactUpdated = await contact.findByIdAndUpdate(req.body._id, {
-    name: req.body.name,
     tel: req.body.tel,
     cel: req.body.cel,
   });
