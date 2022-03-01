@@ -1,8 +1,8 @@
 # phoneBook
 # Link para importar el postman con las pruebas de Phone Book
 # Link pruebas postman: https://www.getpostman.com/collections/24382044006477ff3bcb
-<!-- Guia para utilizar la app Phonebook -->
-<!-- 
+ Guia para utilizar la app Phonebook 
+
 1. clonar el repositorio 
 
 2. ejecutar el comando npm i para instalar las librerías necesarias
@@ -38,4 +38,3 @@ Funcionalidades para contactos
 4. Validamos que los id ingresados, cumplas con la estructura de Id mongoDB (middlewares - validId.js)
 
 5. en controllers - contact.js se encuentran los métodos CRUD para esta entidad.
--->
