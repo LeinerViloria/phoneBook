@@ -5,10 +5,11 @@ import validId from '../middlewares/validId.js';
 
 const APP = express.Router();
 const nameVerification = phoneBookMD.nameVerification;
+const existingPhoneBook = phoneBookMD.existingPhoneBook;
 
 APP.post("/register", nameVerification, phoneBook.register);
 APP.get("/phoneBooksList", phoneBook.phoneBooksList);
-APP.get("/freeSpaces/:_phoneBookId", validId, phoneBook.freeSpaces);
+APP.get("/freeSpaces/:_phoneBookId", validId, existingPhoneBook, phoneBook.freeSpaces);
 
 
 export default APP;
