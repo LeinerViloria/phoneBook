@@ -13,6 +13,16 @@ import { PhonebookService } from './services/phonebook.service';
 import { ContactService } from './services/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
+//Angular material
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { HelpComponent } from './home/help/help.component';
+import {MatListModule} from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +31,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateComponent,
     PhonebooklistComponent,
     ContactsListComponent,
-    SaveContactComponent
+    SaveContactComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     PhonebookService,

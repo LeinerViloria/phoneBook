@@ -1,1 +1,38 @@
-<p>header works!</p>
+<mat-toolbar>
+  <!-- <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <span>Phone Book</span>
+  <span class="headerSpacer"></span>
+  <a routerLink="" title="Home">
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <a routerLink="create" title="Add phonebook">
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </a>
+  <a routerLink="help" title="Help">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>help</mat-icon>
+    </button>
+  </a>
+</mat-toolbar>

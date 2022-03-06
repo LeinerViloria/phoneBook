@@ -1,0 +1,22 @@
+.list{
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+
+.container{
+    margin-top: 20px;
+}
+
+.imgList{
+    width: 80px;
+}
+
+a{
+    text-decoration: none;
+    color: #3a7bb8;
+}
+
+a:hover{
+    transition: all .5s;
+    color: #0b4377;
+}
