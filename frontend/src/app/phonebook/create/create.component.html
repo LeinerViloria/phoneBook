@@ -1,1 +1,22 @@
-<p>create works!</p>
+<div class="form content">
+    <mat-card class="card">
+      <mat-card-title> Crear directorio </mat-card-title>
+      <mat-card-content>
+        <div class="container">
+          <mat-form-field>
+            <input
+              type="text"
+              [(ngModel)]="registerData.name"
+              matInput
+              placeholder="Ingrese el nombre"
+              autofocus
+              required
+            />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+          <button (click)="registerP_B()" class="button" mat-raised-button>Guardar</button>
+      </mat-card-actions>
+    </mat-card>
+</div>
