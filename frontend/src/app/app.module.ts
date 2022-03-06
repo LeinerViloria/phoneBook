@@ -11,6 +11,7 @@ import { ContactsListComponent } from './contact/contacts-list/contacts-list.com
 import { SaveContactComponent } from './contact/save-contact/save-contact.component';
 import { PhonebookService } from './services/phonebook.service';
 import { ContactService } from './services/contact.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactService } from './services/contact.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     PhonebookService,
