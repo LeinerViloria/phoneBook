@@ -16,7 +16,7 @@ const existingContact = async (req, res, next) => {
   res
     .status(400)
     .send({
-      message:
+      msg:
         "This name contact " +
         req.body.name +
         " is already registered in this phone book",
@@ -36,9 +36,10 @@ const notChanges = async (req, res, next) => {
 };
 
 const existingName = async (req, res, next) => {
+
   if (!req.body.name || !req.body._id || !req.body.phoneBookId)
     return res.status(400).send({ message: "Incomplete data" });
-
+  
   const name = await contact.findOne({
     $and: [
       { phoneBookId: req.body.phoneBookId },

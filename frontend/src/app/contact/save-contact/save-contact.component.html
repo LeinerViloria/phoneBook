@@ -1,1 +1,41 @@
-<p>save-contact works!</p>
+<div class="form">
+    <mat-card class="card">
+      <mat-card-title> Save contact </mat-card-title>
+      <mat-card-content>
+        <div class="container">
+          <mat-form-field>
+            <input
+              type="text"
+              [(ngModel)]="registerData.name"
+              matInput
+              placeholder="Ingrese el nombre"
+              autofocus
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="number"
+              [(ngModel)]="registerData.tel"
+              matInput
+              placeholder="Ingrese el telefono"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="number"
+              [(ngModel)]="registerData.cel"
+              matInput
+              placeholder="Ingrese el celular"
+            />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+          <div class="buttons">
+              <button (click)="seeList()" class="button" mat-raised-button>Contact list</button>
+              <button (click)="save()" class="button" mat-raised-button>Save</button>
+          </div>
+      </mat-card-actions>
+    </mat-card>
+</div>

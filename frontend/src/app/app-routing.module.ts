@@ -20,11 +20,11 @@ const routes: Routes = [
     component:CreateComponent
   },
   {
-    path:'saveContact',
+    path:'saveContact/:_id',
     component:SaveContactComponent
   },
   {
-    path:'contactList',
+    path:'contactList/:_id',
     component:ContactsListComponent
   },
   {

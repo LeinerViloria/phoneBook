@@ -15,4 +15,8 @@ export class PhonebookService {
   registerP_B(phoneBook:any){
     return this._http.post<any>(this.env+'phoneBook/register', phoneBook);
   }
+
+  getList(){
+    return this._http.get<any>(this.env+'phoneBook/phoneBooksList');
+  }
 }

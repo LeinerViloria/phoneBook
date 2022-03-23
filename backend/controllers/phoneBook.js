@@ -17,7 +17,7 @@ const freeSpaces = async (req, res) => {
 
     if((limit - phoneBookContacts.length)===0) return res.status(500).send({msg:"This phone books is full"});
 
-    const message = (limit - phoneBookContacts.length)>1 ? "This phone book have "+(limit - phoneBookContacts.length)+" free spaces" : "This phone book have "+(limit - phoneBookContacts.length)+" free space";
+    const message = (limit - phoneBookContacts.length)>1 ? "This phone book have "+(limit - phoneBookContacts.length)+" free spaces" : "This phone book have one free space";
 
     return res.status(200).send({msg:message});
 }

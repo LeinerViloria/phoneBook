@@ -15,11 +15,7 @@ export class CreateComponent implements OnInit {
   verticalPosition:MatSnackBarVerticalPosition="top";
   durationInSeconds:number=2000;
 
-  // constructor(private _phoneBook:PhonebookService, private _router:Router, private _snackBar:MatSnackBar) {
-  //   this.registerData={};
-  // }
-
-  constructor(private _phoneBook:PhonebookService,  private _router:Router){
+  constructor(private _phoneBook:PhonebookService,  private _router:Router, private _snackBar:MatSnackBar){
     this.registerData={};
   }
 
@@ -46,22 +42,20 @@ export class CreateComponent implements OnInit {
   }
 
   openSnackBarSuccesfull() {
-    // this._snackBar.open(this.message, 'X', {
-    //   horizontalPosition: this.horizontalPosition,
-    //   verticalPosition: this.verticalPosition,
-    //   duration: this.durationInSeconds,
-    //   panelClass: ['styleSnackBarSuccesfull'],
-    // });
-    alert(this.message);
+    this._snackBar.open(this.message, 'X', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds,
+      panelClass: ['styleSnackBarSuccesfull'],
+    });
   }
   openSnackBarError() {
-    // this._snackBar.open(this.message, 'X', {
-    //   horizontalPosition: this.horizontalPosition,
-    //   verticalPosition: this.verticalPosition,
-    //   duration: this.durationInSeconds,
-    //   panelClass: ['styleSnackBarError'],
-    // });
-    alert(this.message);
+    this._snackBar.open(this.message, 'X', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds,
+      panelClass: ['styleSnackBarError'],
+    });
  }
 
 }

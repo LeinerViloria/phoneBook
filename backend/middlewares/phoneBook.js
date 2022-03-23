@@ -13,19 +13,19 @@ const nameVerification = async (req, res, next) => {
   next();
 };
 
-const getPhoneBookIdByName = async (req, res, next) => {
-  if (!req.body.phoneBookName)
-    return res.status(400).send({ msg: "Incomplete data" });
+// const getPhoneBookIdByName = async (req, res, next) => {
+//   if (!req.body.phoneBookName)
+//     return res.status(400).send({ msg: "Incomplete data" });
 
-  const thisPB = await phoneBook.findOne({ name: req.body.phoneBookName });
+//   const thisPB = await phoneBook.findOne({ name: req.body.phoneBookName });
 
-  if (!thisPB) return res.status(400).send({ msg: "Phone book not found" });
+//   if (!thisPB) return res.status(400).send({ msg: "Phone book not found" });
 
-  req.body.phoneBookId = thisPB._id;
+//   req.body.phoneBookId = thisPB._id;
 
-  req.body.name = req.body.name.toLowerCase();
-  next();
-};
+//   req.body.name = req.body.name.toLowerCase();
+//   next();
+// };
 
 const existingPhoneBook = async (req, res, next) => {
   if (!req.params["_phoneBookId"])
@@ -40,4 +40,4 @@ const existingPhoneBook = async (req, res, next) => {
     : next();
 };
 
-export default { nameVerification, getPhoneBookIdByName, existingPhoneBook };
+export default { nameVerification, existingPhoneBook };

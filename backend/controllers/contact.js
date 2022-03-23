@@ -11,15 +11,15 @@ const addContact = async (req, res) => {
 
   if (!canSave) return res.status(500).send({ msg: "The phone book is full" });
 
-     let telephone = !req.body.tel ? "Sin numero" : req.body.tel;
-     let cellphone = !req.body.cel ? "Sin numero" : req.body.cel;
+  let telephone = !req.body.tel ? "Sin numero" : req.body.tel;
+  let cellphone = !req.body.cel ? "Sin numero" : req.body.cel;
 
-    const schema = new contact({
-        phoneBookId:req.body.phoneBookId,
-        name:req.body.name.toLowerCase().trim(),
-        tel:telephone,
-        cel:cellphone
-    });
+  const schema = new contact({
+    phoneBookId: req.body.phoneBookId,
+    name: req.body.name.toLowerCase().trim(),
+    tel: telephone,
+    cel: cellphone,
+  });
 
   const result = await schema.save();
 
@@ -31,10 +31,11 @@ const addContact = async (req, res) => {
 const contactsList = async (req, res) => {
   if (!req.params["_phoneBookId"])
     return res.status(400).send({ msg: "Incomplete data" });
-    
-  const contacts = await contact.find({
-    phoneBookId: req.params["_phoneBookId"],
-  });
+
+  const contacts = await contact
+    .find({
+      phoneBookId: req.params["_phoneBookId"],
+    }).skip(1).limit(2);
 
   if (contacts.length === 0)
     return res
@@ -48,7 +49,12 @@ const searchContact = async (req, res) => {
   if (!req.params["name"])
     return res.status(400).send({ msg: "Incomplete data" });
 
-    const contactSearched = await contact.findOne({ $and:[{phoneBookId:req.params["_phoneBookId"]}, {name: new RegExp (req.params["name"], "i")}]}) ;
+  const contactSearched = await contact.findOne({
+    $and: [
+      { phoneBookId: req.params["_phoneBookId"] },
+      { name: new RegExp(req.params["name"], "i") },
+    ],
+  });
 
   if (!contactSearched)
     return res.status(500).send({ msg: "Contact not found" });
@@ -63,14 +69,15 @@ const deleteContact = async (req, res) => {
 
   if (!contactToDelete) return res.status(500).send({ msg: "Error to delete" });
 
-  res.status(200).send({ msg: "The contact "+ contactToDelete.name + " was successfully removed" });
+  res
+    .status(200)
+    .send({
+      msg: "The contact " + contactToDelete.name + " was successfully removed",
+    });
 };
 // realice el update
 const updateContact = async (req, res) => {
-  if (
-    !req.body._id ||
-    !req.body.tel & !req.body.cel
-  )
+  if (!req.body._id || !req.body.tel & !req.body.cel)
     return res.status(400).send({ message: "Incomplete data" });
 
   const contactUpdated = await contact.findByIdAndUpdate(req.body._id, {

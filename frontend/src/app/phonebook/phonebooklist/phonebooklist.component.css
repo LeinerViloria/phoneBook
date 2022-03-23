@@ -3,6 +3,12 @@
     margin-bottom: 20px;
 }
 
+.noInfo{
+    font-size: 30px;
+    text-align: center !important;
+    color: #001058;
+}
+
 .container{
     margin-top: 20px;
 }

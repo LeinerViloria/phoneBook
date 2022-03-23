@@ -24,6 +24,10 @@ import { HelpComponent } from './home/help/help.component';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -38,17 +42,21 @@ import {MatInputModule} from '@angular/material/input';
   ],
   imports: [
     BrowserModule,
+    MatSortModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [
     PhonebookService,

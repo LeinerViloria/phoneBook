@@ -13,4 +13,12 @@ const idValidation = async(req, res, next) => {
     return !isValidPhoneId || !isValidContactId ? res.status(400).send({msg:"Invalid Id"}) : next();
 }
 
-export default idValidation;
+const idValidationByPost = async(req, res, next) => {
+    if(!req.body.phoneBookId) return res.status(400).send({msg:"PhoneBook Id required"});
+
+    let isValidPhoneId = mongoose.Types.ObjectId.isValid(req.body.phoneBookId);
+
+    return !isValidPhoneId ? res.status(400).send({msg:"Invalid Id"}) : next();
+}
+
+export default {idValidation, idValidationByPost};
